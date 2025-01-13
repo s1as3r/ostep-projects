@@ -1,0 +1,15 @@
+set shell := ["fish", "-c"]
+
+alias b := build
+alias t := test
+
+file := ""
+
+default: test
+
+build:
+  gcc {{file}} -o {{file_stem(file)}} -Werror -Wall -Wextra
+
+test: build
+  ./test-{{file_stem(file)}}.sh
+
