@@ -2,6 +2,7 @@ set shell := ["fish", "-c"]
 
 alias b := build
 alias t := test
+alias r := rm
 
 file := ""
 
@@ -13,3 +14,5 @@ build:
 test: build
   ./test-{{file_stem(file)}}.sh
 
+rm:
+  rm {{file_stem(file)}}
