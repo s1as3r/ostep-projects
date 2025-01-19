@@ -1,0 +1,18 @@
+set shell := ["fish", "-c"]
+
+alias b := build
+alias t := test
+alias r := rm
+
+file := "kv.c"
+
+default: test
+
+build:
+  gcc {{file}} -o {{file_stem(file)}} -Werror -Wall -Wextra -g
+
+test: build
+  ./test-{{file_stem(file)}}.sh
+
+rm:
+  rm -f {{file_stem(file)}}
