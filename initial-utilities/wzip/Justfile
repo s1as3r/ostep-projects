@@ -15,4 +15,4 @@ test: build
   ./test-{{file_stem(file)}}.sh
 
 rm:
-  rm {{file_stem(file)}}
+  rm -f {{file_stem(file)}}
